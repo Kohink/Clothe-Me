@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^$', include('login.urls')),
     url(r'user/', include('user_profile.urls')),
     url(r'closet/', include('user_closet.urls')),
+    url(r'create/', include('create_account.urls')),
 
 ]
