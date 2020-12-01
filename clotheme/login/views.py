@@ -4,6 +4,6 @@ from django.http import HttpResponseRedirect
 
 
 def index(request):
-    return HttpResponse("<h1> Login Page")
+    return render(request, 'login.html')
 
 
