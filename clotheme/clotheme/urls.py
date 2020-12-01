@@ -19,6 +19,7 @@ from django.conf.urls import include, url
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('login.urls')),
-    url(r'user/', include('user_profile.urls'))
+    url(r'user/', include('user_profile.urls')),
+    url(r'closet/', include('user_closet.urls')),
 
 ]
