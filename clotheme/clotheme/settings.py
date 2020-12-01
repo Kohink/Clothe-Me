@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'login',
-    'user_closet',
+    'user_closet.apps.UserClosetConfig',
     'user_profile',
     'django.contrib.admin',
     'django.contrib.auth',
