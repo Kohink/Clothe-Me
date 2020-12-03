@@ -13,3 +13,6 @@ class Clothes(models.Model):
     clothes_id = models.CharField(max_length=30),
     type_cloth = models.CharField(max_length=200),
     size = models.CharField(max_length=200),
+
+    def __str__(self):
+        return self.clothes_id
