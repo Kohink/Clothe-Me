@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Closet(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200),
 
 class Clothes(models.Model):
-    closet = models.ForeignKey(Closet, on_delete=models.CASCADE)
-    name = models.CharField(max_length=30)
-    type_cloth = models.CharField(max_length=200)
-    size = models.CharField(max_length=200)
+    closet = models.ForeignKey(Closet, on_delete=models.CASCADE),
+    clothes_id = models.CharField(max_length=30),
+    type_cloth = models.CharField(max_length=200),
+    size = models.CharField(max_length=200),
