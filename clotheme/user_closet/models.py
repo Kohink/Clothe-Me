@@ -1,11 +1,9 @@
 from django.db import models
-# Create your models here.
 
 class Closet(models.Model):
-    name = models.CharField(max_length=200),
+    name = models.CharField(max_length=200, default='First Closet')
 
-    def __str__(self):
-        return self.name
+    
 
 class Clothes(models.Model):
     closet = models.ForeignKey(Closet, on_delete=models.CASCADE),
@@ -13,5 +11,4 @@ class Clothes(models.Model):
     type_cloth = models.CharField(max_length=200),
     size = models.CharField(max_length=200),
 
-    def __str__(self):
-        return self.clothes_id
+    
