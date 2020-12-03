@@ -5,6 +5,9 @@ from django.db import models
 class Closet(models.Model):
     name = models.CharField(max_length=200),
 
+    def __str__(self):
+        return self.name
+
 class Clothes(models.Model):
     closet = models.ForeignKey(Closet, on_delete=models.CASCADE),
     clothes_id = models.CharField(max_length=30),
