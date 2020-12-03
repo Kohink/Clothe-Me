@@ -1,0 +1,10 @@
+{% if all_closets %}
+    <h3>My Closets:</h3>
+    <ul>
+        {% for closet in all_closets %}
+            <li><a href="/user_closet/{{ closet.id }}/">{{ closet.name }}</a></li>
+        {% endfor %}    
+    </ul>
+{% else %}
+    <h3>You don't have any closets</h3>
+{% endif %}
