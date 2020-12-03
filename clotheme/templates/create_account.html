@@ -5,20 +5,20 @@
       <p>Please fill in this form to create an account.</p>
 	  <hr>
 	  <p style="text-align: center;"><label for="username"><b>Username</b></label></p>
-	  <p style="text-align: center;"><input type="text" placeholder="Enter Username" name="username" required></p>
+	  <p style="text-align: center;"><input type="text" id="t1" placeholder="Enter Username" name="username" required></p>
 
 	  <p>&nbsp;</p>
       <p style="text-align: center;"><label for="email"><b>Email</b></label></p>
-	  <p style="text-align: center;"><input type="text" placeholder="Enter Email" name="email" required></p>
+	  <p style="text-align: center;"><input type="text" id="t2" placeholder="Enter Email" name="email" required></p>
 	  <p>&nbsp;</p>
 	  
 
       <p style="text-align: center;"><label for="psw"><b>Password</b></label></p>
-	  <p style="text-align: center;"><input type="password" placeholder="Enter Password" name="psw" required></p>
+	  <p style="text-align: center;"><input type="password" id="t3" placeholder="Enter Password" name="psw" required></p>
 	  <p>&nbsp;</p>
 
       <p style="text-align: center;"><label for="psw-repeat"><b>Confirm Password</b></label></p>
-	  <p style="text-align: center;"><input type="password" placeholder="Repeat Password" name="psw-repeat" required></p>
+	  <p style="text-align: center;"><input type="password" id="t4" placeholder="Repeat Password" name="psw-repeat" required></p>
 	  <p>&nbsp;</p>
 
       <label>
@@ -27,7 +27,7 @@
 	  <p>&nbsp;</p>
 
       <div class="clearfix">
-        <p style="text-align: center;"><button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Clear</button></p>
+        <p style="text-align: center;"><button type="button" onclick="document.getElementByid('t1').value=' ' " >Clear</button></p>
         <p style="text-align: center;"><button type="submit" class="signup">Sign Up</button></p>
         <p style="text-align: center;"><button type="back" class="signup"  onclick="location.href='/'">Go Back</button></p>
       </div>
