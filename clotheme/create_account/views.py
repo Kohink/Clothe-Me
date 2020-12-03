@@ -1,4 +1,8 @@
+from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+
 
 def indd(request):
-    return HttpResponse("<h1>Create Account</h1>")
+    return render(request, 'create_account.html')
+
