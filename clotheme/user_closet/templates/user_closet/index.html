@@ -6,7 +6,15 @@
     <h3>My Closets:</h3>
     <ul>
         {% for closet in all_closets %}
-            <li><a href="{% url 'user_closet:detail' closet.id %}">{{ closet.name }}</a></li>
+            <li>
+                <a href="{% url 'user_closet:detail' closet.id %}">{{ closet.name }}</a>   
+                <form method="post" action="{% url 'user_closet:closet-update' closet.id %}">
+                    {% csrf_token %}<input type="submit" value="Edit">
+                </form>
+                <form method="post" action="{% url 'user_closet:closet-delete' closet.id %}">
+                    {% csrf_token %}<input type="submit" value="Delete">
+                </form>
+            </li>
         {% endfor %}    
     </ul>
 {% else %}
