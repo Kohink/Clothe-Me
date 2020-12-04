@@ -30,6 +30,13 @@ class ClosetUpdate(UpdateView):
     fields = ['name', 'desc']
 
 
+class ClosetDelete(DeleteView):
+    model = Closet
+    def get_success_url(self):
+        return reverse('user_closet:index')
+
+
+
 class ClothesCreate(CreateView):
     model = Clothes
     template_name = 'user_closet/clothes_form.html'
