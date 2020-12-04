@@ -20,5 +20,8 @@ class Clothes(models.Model):
     size = models.CharField(max_length=30, default='Size')
     image = models.CharField(max_length=1000, default='No Image')
 
+    def get_absolute_url(self):
+        return reverse('user_closet:detail', kwargs={'pk': self.closet.id})
+
     def __str__(self):
         return self.clothes_name
