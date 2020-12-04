@@ -29,9 +29,6 @@
 				<li class="nav-item">
 				  <a class="nav-link" href="{% url 'user_closet:register' %}">Create Account</a>
 				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="/closet/">Login</a>
-				</li>
 			  </ul>
 			</div>
 		  </nav>
@@ -39,28 +36,16 @@
 		<div class="container"></div>
 			<div class="row text-center">
 				<div class="col-md-12 col-xs-12">
-					<form method="post">
-						{% csrf_token %}
-						{{ form }}
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<p>&nbsp;</p>
-						<input type="text" name="username" placeholder="Username">
-					</form>
+					<h1 style="text-align: center;">Share Your Outfit with Others</h1>
 				</div>
             </div>
             
             <div class="container"></div>
 			<div class="row text-center">
 				<div class="col-md-12 col-xs-12">
-					<form method="post">
-						{% csrf_token %}
-						{{ form }}
 						<p>&nbsp;</p>
-						<input type="text" name="password" placeholder="Password">
 						<p>&nbsp;</p>
-						<p style="text-align: center;"><button type="submit" class="signup"onclick="location.href='/closet/'">Sign In</button></p>
-					</form>
+						<p style="text-align: center;"><a class="nav-link" href="/closet/login/">Enter Site</a></button></p>
 				</div>
             </div>
             

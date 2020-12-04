@@ -1,11 +1,11 @@
 from django.views import generic
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from .models import Closet, Clothes
-from .forms import UserForm
+from .forms import RegisterForm, LoginForm
 
 class IndexView(generic.ListView):
     template_name = 'user_closet/index.html'
@@ -55,32 +55,66 @@ class ClothesCreate(CreateView):
         return super(ClothesCreate, self).form_valid(form)
 
 
-class UserFormView(View):
-    form_class = UserForm
+def Logout(request):
+    logout(request)
+    return redirect('/')
+
+
+
+class UserLogin(FormView):
+    form_class = LoginForm
     template_name = 'user_closet/registration_form.html'
 
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+    def get_context_data(self, **kwargs):
+        context = super(UserLogin, self).get_context_data(**kwargs)
+        context['header_text'] = 'Log In'
+        context['login'] = True
+        return context
+
+    def post(self, request, *args, **kwargs):
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username = username, password = password)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('/closet/')
+            else:
+                return render(request, self.template_name, {'form': self.form_class(None), 'error_message': 'Inactive User', 'header_text': 'Log In', 'login': True})
+        else: 
+            return render(request, self.template_name, {'form': self.form_class(None), 'error_message': 'Invalid Credentials', 'header_text': 'Log In', 'login': True})
+
+
+class UserRegister(FormView):
+    form_class = RegisterForm
+    template_name = 'user_closet/registration_form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserRegister, self).get_context_data(**kwargs)
+        context['header_text'] = 'Register New Account'
+        context['register_user'] = True
+        return context
 
     def post(self, request):
         form = self.form_class(request.POST)
 
         if form.is_valid():
+            user = form.save(commit = False)
 
-            user = form.save(commit=False)
-
+            # cleaned (normalized data)
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
 
-            user = authenticate(username=username, password=password)
+            # returns User objects if credentials are correct
+            user = authenticate(username = username, password = password)
 
             if user is not None:
-
                 if user.is_active:
                     login(request, user)
-                    return redirect('/closet/')
+                    return redirect('/closet/login/')
 
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'header_text': 'Register New Account', 'register_user': True})
