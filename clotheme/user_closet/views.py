@@ -1,4 +1,5 @@
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Closet
 
 class IndexView(generic.ListView):
@@ -12,3 +13,8 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Closet
     template_name = 'user_closet/detail.html'
+
+
+class ClosetCreate(CreateView):
+    model = Closet
+    fields = ['name', 'desc']

@@ -1,8 +1,12 @@
 from django.db import models
+from django.urls import reverse
 
 class Closet(models.Model):
     name = models.CharField(max_length=200, default='My Closet')
     desc = models.CharField(max_length=1000, default='Description')
+
+    def get_absolute_url(self):
+        return reverse('user_closet:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.name
