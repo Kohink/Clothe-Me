@@ -1,11 +1,14 @@
-from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from .models import Closet
 
-def indexx(request):
-    all_closets = Closet.objects.all()
-    return render(request, 'user_closet/index.html', {'all_closets': all_closets})
+class IndexView(generic.ListView):
+    template_name = 'user_closet/index.html'
+    context_object_name = 'all_closets'
 
-def detail(request, closet_id):
-    closet = get_object_or_404(Closet, pk=closet_id)
-    return render(request, 'user_closet/detail.html', {'closet': closet})
+    def get_queryset(self):
+        return Closet.objects.all()
+
+
+class DetailView(generic.DetailView):
+    model = Closet
+    template_name = 'user_closet/detail.html'
