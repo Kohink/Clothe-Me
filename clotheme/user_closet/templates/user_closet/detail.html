@@ -1,3 +1,8 @@
+{% extends 'user_closet/base.html' %}
+
+
+{% block body %}
+
 <h1>{{ closet.name }}</h1>
 
 <h3>{{ closet.desc }}</h3>
@@ -16,3 +21,5 @@
     <li>Material - {{ clothes.type_cloth }}</li>
 </ul>
 {% endfor %}
+
+{% endblock %}
