@@ -5,14 +5,14 @@
 {% for clothes in closet.clothes_set.all %}
 <h2>{{ clothes.clothes_name }}</h2>
 
-<img src="{{ clothes.image }}">
+<img src="{{ clothes.image }}" style="width: 300px; height: auto">
 
 <p>Details:</p>
 
 <ul>
-    <li>{{ clothes.brand }}</li>
-    <li>{{ clothes.size }}</li>
-    <li>{{ clothes.color }}</li>
-    <li>{{ clothes.type_cloth }}</li>
+    <li>Brand - {{ clothes.brand }}</li>
+    <li>Size - {{ clothes.size }}</li>
+    <li>Color - {{ clothes.color }}</li>
+    <li>Material - {{ clothes.type_cloth }}</li>
 </ul>
 {% endfor %}
