@@ -30,11 +30,6 @@ class ClosetUpdate(UpdateView):
     fields = ['name', 'desc']
 
 
-class ClosetDelete(DeleteView):
-    model = Closet
-    def get_success_url(self):
-        return reverse('user_closet:index')
-
 class ClothesDelete(DeleteView):
     model = Clothes
     def get_success_url(self):
