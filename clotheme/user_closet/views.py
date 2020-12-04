@@ -35,6 +35,11 @@ class ClosetDelete(DeleteView):
     def get_success_url(self):
         return reverse('user_closet:index')
 
+class ClothesDelete(DeleteView):
+    model = Clothes
+    def get_success_url(self):
+        return reverse('user_closet:clothes_form')
+
 
 class ClothesCreate(CreateView):
     model = Clothes
