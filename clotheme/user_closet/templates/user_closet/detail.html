@@ -15,7 +15,7 @@
 {% for clothes in closet.clothes_set.all %}
 <h2>{{ clothes.clothes_name }}</h2>
 
-<img src="{{ clothes.image }}" style="width: 300px; height: auto">
+<img src="{{ clothes.image.url }}" style="width: 300px; height: auto">
 
 <p>Details:</p>
 

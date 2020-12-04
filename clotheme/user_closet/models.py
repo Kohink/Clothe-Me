@@ -18,7 +18,7 @@ class Clothes(models.Model):
     color = models.CharField(max_length=30, default='Color')
     type_cloth = models.CharField(max_length=30, default='Cloth Type')
     size = models.CharField(max_length=30, default='Size')
-    image = models.CharField(max_length=1000, default='No Image')
+    image = models.FileField()
 
     def get_absolute_url(self):
         return reverse('user_closet:detail', kwargs={'pk': self.closet.id})
