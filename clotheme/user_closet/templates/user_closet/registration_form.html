@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothe-Me - Create Account</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'user_closet/style.css' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand" href="#">Clothe-Me</span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_closet:register' %}">Create Account</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="panel">
+
+                <div class="panel-body">
+
+                    <form class="form-hz" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'user_closet/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col2">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
