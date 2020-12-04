@@ -1,14 +1,20 @@
 from django.db import models
 
 class Closet(models.Model):
-    name = models.CharField(max_length=200, default='First Closet')
+    name = models.CharField(max_length=200, default='My Closet')
+    desc = models.CharField(max_length=1000, default='Description')
 
-    
+    def __str__(self):
+        return self.name
 
 class Clothes(models.Model):
-    closet = models.ForeignKey(Closet, on_delete=models.CASCADE),
-    clothes_id = models.CharField(max_length=30),
-    type_cloth = models.CharField(max_length=200),
-    size = models.CharField(max_length=200),
+    closet = models.ForeignKey(Closet, on_delete=models.CASCADE, default=1)
+    clothes_name = models.CharField(max_length=30, default='Name')
+    brand = models.CharField(max_length=30, default='Brand')
+    color = models.CharField(max_length=30, default='Color')
+    type_cloth = models.CharField(max_length=30, default='Cloth Type')
+    size = models.CharField(max_length=30, default='Size')
+    image = models.CharField(max_length=1000, default='No Image')
 
-    
+    def __str__(self):
+        return self.clothes_name
