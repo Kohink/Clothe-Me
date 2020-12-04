@@ -2,7 +2,7 @@
     <h3>My Closets:</h3>
     <ul>
         {% for closet in all_closets %}
-            <li><a href="{% url 'detail' closet.id %}">{{ closet.name }}</a></li>
+            <li><a href="{% url 'user_closet:detail' closet.id %}">{{ closet.name }}</a></li>
         {% endfor %}    
     </ul>
 {% else %}
