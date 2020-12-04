@@ -12,10 +12,6 @@
     {% csrf_token %}<input type="submit" value="Add Clothes">
 </form>
 
-<form method="post" action="{% url 'user_closet:clothes-delete' closet.id %}">
-    {% csrf_token %}<input type="submit" value="Delete Clothing">
-</form>
-
 {% for clothes in closet.clothes_set.all %}
 <h2>{{ clothes.clothes_name }}</h2>
 
@@ -28,6 +24,9 @@
     <li>Size - {{ clothes.size }}</li>
     <li>Color - {{ clothes.color }}</li>
     <li>Material - {{ clothes.type_cloth }}</li>
+    <form method="post" action="{% url 'user_closet:clothes-delete' closet.id %}">
+        {% csrf_token %}<input type="submit" value="Delete Clothing">
+    </form>
 </ul>
 {% endfor %}
 
