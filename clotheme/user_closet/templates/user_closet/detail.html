@@ -1,0 +1,18 @@
+<h1>{{ closet.name }}</h1>
+
+<h3>{{ closet.desc }}</h3>
+
+{% for clothes in closet.clothes_set.all %}
+<h2>{{ clothes.clothes_name }}</h2>
+
+<img src="{{ clothes.image }}">
+
+<p>Details:</p>
+
+<ul>
+    <li>{{ clothes.brand }}</li>
+    <li>{{ clothes.size }}</li>
+    <li>{{ clothes.color }}</li>
+    <li>{{ clothes.type_cloth }}</li>
+</ul>
+{% endfor %}
